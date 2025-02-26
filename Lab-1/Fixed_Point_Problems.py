@@ -5,18 +5,18 @@ import matplotlib.pyplot as plt
 
 def calculate_objective(X, function):
     if function == "f1":
-        return 0.5 * (X + np.log(1 + X)) ** 2
+        return 0.5 * (X - np.log(1 + X)) ** 2
     elif function == "f2":
-        return 0.5 * (X + np.log(2 + X)) ** 2
+        return 0.5 * (X - np.log(2 + X)) ** 2
     else:
         raise ValueError("Unknown function type. Accepts only 'f1' and 'f2'! ")
 
 
 def compute_gradient(X, function):
     if function == "f1":
-        return (X + np.log(1 + X)) * (1 - 1 / (1 + X))
+        return (X - np.log(1 + X)) * (1 - 1 / (1 + X))
     elif function == "f2":
-        return (X + np.log(2 + X)) * (1 - 1 / (2 + X))
+        return (X - np.log(2 + X)) * (1 - 1 / (2 + X))
     else:
         raise ValueError("Unknown function type. Accepts only 'f1' and 'f2'! ")
 
@@ -62,7 +62,7 @@ step_f1 = 0.2
 
 x_start_f1, hist_f1, time_f1 = gradient_descent(x0_f1, function="f1", step=step_f1)
 
-print("=== Gradient Descent for g1(x) = 1/2 (x + ln(1 + x))^2 ===")
+print("=== Gradient Descent for g1(x) = 1/2 (x - ln(1 + x))^2 ===")
 print(f"Initial gess: {x0_f1}, Step size: {step_f1}")
 print(f"final solution: x* = {x_start_f1:.4g}")
 print(f"Final g1(x*): {calculate_objective(x_start_f1, 'f1'):.4f}")
@@ -79,7 +79,7 @@ step_f2 = 0.1
 
 x_start_f2, hist_f2, time_f2 = gradient_descent(x0_f2, function="f2", step=step_f2)
 
-print("\n=== Gradient Descent for g2(x) = 1/2 (x + ln(2 + x))^2 ===")
+print("\n=== Gradient Descent for g2(x) = 1/2 (x - ln(2 + x))^2 ===")
 print(f"Initial gess: {x0_f2}, Step size: {step_f2}")
 print(f"final solution: x* = {x_start_f2:.4g}")
 print(f"Final g1(x*): {calculate_objective(x_start_f2, 'f2'):.4f}")
@@ -98,8 +98,8 @@ g2_vals = [h[2] for h in hist_f2]
 
 if __name__ == "__main__":
     plt.figure(figsize=(7,5))
-    plt.plot(it_f1, g1_vals, label="g1(x) = 1/2 (x + ln(1+x))^2")
-    plt.plot(it_f2, g2_vals, label="g2(x) = 1/2 (x + ln(2+x))^2")
+    plt.plot(it_f1, g1_vals, label="g1(x) = 1/2 (x - ln(1+x))^2")
+    plt.plot(it_f2, g2_vals, label="g2(x) = 1/2 (x - ln(2+x))^2")
     plt.xlabel("Iteration")
     plt.ylabel("Objective value")
     plt.legend()

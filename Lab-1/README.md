@@ -182,71 +182,54 @@ Now that we have calculated Lipschen constants we can identify our steps: ```ste
 
 # Fixed Point Problem
 
+We implement gradient descent for minimization function $g_1(x)$ and $g_2(x)$.
+
+$g_1(x) = \frac12 (x - ln(1 + x))^2$
+
+$g_2(x) = \frac12 (x - ln(2 + x))^2$
+
+---
+
+```def calculate_objective(X, function):``` Function tack as input: x - the current value of the variable, and a function: g1(x) or g2(x).
+And returns scalar value (the error we minimize).
+
+```def compute_gradient(X, function):``` Function tack as input same that previous. Used to update value X.
+
+```def gradient_descent(X0, function, step, iters):``` Function tack as input same that two previous and also step in our case 0.01 and number of iterations.
+And returns: minimized X, history of possible values X, and time.
+
+---
+
 ![img_3.png](img_3.png)
 
-### === Gradient Descent for g1(x) = $\frac12 (x + ln(1 + x))^2 $ === 
+###  Gradient Descent for $g_1(x) =\frac12 (x - ln(1 + x))^2 $ 
 
-Initial gess: 1, Step size: 0.2
-
-final solution: $x^*$ = 0.02655
-
-Final $g1(x^*)$: 0.0014
-
-Total time: 0.0020
+| Initial gess | Step size | Final solution $x^*$ | Final $g_1(x^*)$ | Total time |
+|--------------|-----------|----------------------|------------------|------------|
+| 1            | 0.2       | 0.02655              | 0.0014           | 0.0020     |
 
 
-### Selected iteration snapshots for g1(x):
+### Selected iteration snapshots for $g_1(x)$:
 
-Iterations:    0, x = 1.0000, g1(x) = 1.4334e+00
+| Iterations |     0      |     10     |     20     |     30     |     40     |     50     |     60     |     70     |     80     |     90     |  
+|------------|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|  
+| x          |   1.0000   |   0.7643   |   0.6257   |   0.5347   |   0.4703   |   0.4222   |   0.3848   |   0.3548   |   0.3301   |   0.3095   |  
+| g1(x)      | 4.7079e-02 | 1.9311e-02 | 9.7676e-03 | 5.6582e-03 | 3.5990e-03 | 2.4496e-03 | 1.7547e-03 | 1.3078e-03 | 1.0060e-03 | 7.9413e-04 |  
 
-Iterations:   10, x = 0.2700, g1(x) = 1.2955e-01
 
-Iterations:   20, x = 0.1406, g1(x) = 3.7046e-02
 
-Iterations:   30, x = 0.0931, g1(x) = 1.6569e-02
+###  Gradient Descent for $g_2(x) = \frac12 (x - ln(2 + x))^2$
 
-Iterations:   40, x = 0.0690, g1(x) = 9.2205e-03
+| Initial gess | Step size | Final solution $x^*$ | Final $g_2(x^*)$ | Total time |
+|--------------|-----------|----------------------|------------------|------------|
+| 2            | 0.1       | 1.152                | 0.0000           | 0.0030     |
 
-Iterations:   50, x = 0.0547, g1(x) = 5.8267e-03
+### Selected iteration snapshots for $g_2(x)$:
 
-Iterations:   60, x = 0.0452, g1(x) = 3.9992e-03
+| Iterations |     0      |     10     |     20     |     30     |     40     |     50     |     60     |     70     |     80     |     90     |  
+|------------|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|  
+| x          |   2.0000   |   1.6438   |   1.4432   |   1.3261   |   1.2562   |   1.2139   |   1.1880   |   1.1720   |   1.1622   |   1.1561   |  
+| g1(x)      | 1.8832e-01 | 6.1515e-02 | 2.1381e-02 | 7.7280e-03 | 2.8624e-03 | 1.0764e-03 | 4.0866e-04 | 1.5606e-04 | 5.9813e-05 | 2.2977e-05 |  
 
-Iterations:   70, x = 0.0385, g1(x) = 2.9081e-03
 
-Iterations:   80, x = 0.0335, g1(x) = 2.2067e-03
-
-Iterations:   90, x = 0.0296, g1(x) = 1.7301e-03
-
-### === Gradient Descent for $g2(x) = \frac12 (x + ln(2 + x))^2 ===$
-
-Initial gess: 2, Step size: 0.1
-
-final solution: $x^*$ = -0.4407
-
-Final $g1(x^*)$: 0.0000
-
-Total time: 0.0010
-
-### Selected iteration snapshots for g2(x):
-
-Iterations:    0, x = 2.0000, g1(x) = 5.7335e+00
-
-Iterations:   10, x = 0.4331, g1(x) = 8.7417e-01
-
-Iterations:   20, x = -0.0729, g1(x) = 1.7001e-01
-
-Iterations:   30, x = -0.2675, g1(x) = 3.9782e-02
-
-Iterations:   40, x = -0.3541, g1(x) = 1.0384e-02
-
-Iterations:   50, x = -0.3964, g1(x) = 2.8789e-03
-
-Iterations:   60, x = -0.4180, g1(x) = 8.2472e-04
-
-Iterations:   70, x = -0.4295, g1(x) = 2.4049e-04
-
-Iterations:   80, x = -0.4356, g1(x) = 7.0810e-05
-
-Iterations:   90, x = -0.4389, g1(x) = 2.0959e-05
-
-![img_4.png](img_4.png)
+![img_6.png](img_6.png)
