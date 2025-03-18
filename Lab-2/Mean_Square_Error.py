@@ -17,14 +17,13 @@ def gradient_descent(X, y, w, step, tol=1e-1, max_iter=1000):
     objective_history = []
     for iter in range(max_iter):
         grad = compute_gradient(X, y, w)
-        w1 = w - step * grad.reshape(-1, 1)
         if iter % 10000 == 0:
             print(f"Iteration {iter}: Gradient norm = {np.linalg.norm(grad):.6f}, w = {w[0]} {w[1]}")
-        if np.linalg.norm(grad) < tol:
+        if np.linalg.norm(grad) <= tol:
             break
-        else:
-            w = w1
-            objective_history.append(calculate_objective(X, y, w))
+
+        w = w - step * grad
+        objective_history.append(calculate_objective(X, y, w))
 
     return w, objective_history, iter + 1
 
@@ -46,8 +45,7 @@ gamma = 1 / L1
 
 #initial approximation
 #w_test = [[0.7402], [2.4391]]
-w_test = np.array([[0], [1]])
-
+w_test = [[0], [1]]
 
 x, h, i = gradient_descent(matrix_X, y, w_test, step=gamma, tol=1e-2, max_iter=1000000)
 print(x)
