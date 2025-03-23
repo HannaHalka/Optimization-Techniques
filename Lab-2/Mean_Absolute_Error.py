@@ -7,7 +7,7 @@ def calculate_objective(X, y, w):
     fsum = 0
     n = X.shape[0]
     for i in range(n):
-        fsum += np.abs(y[i] - w[0] - w[1]*X[i, 1])
+        fsum += np.abs(y[i] - w[0] - w[1] * X[i, 1])
     return fsum/n
 
 
@@ -16,7 +16,7 @@ def compute_gradient(X, y, w):
     m = X.shape[0]
     for i in range(m):
         if y[i] - w[0] - w[1] * X[i, 1] > 0:
-            gsum += np.array([-1, -X[i, 1]])
+            gsum += np.array([-1, - X[i, 1]])
         elif y[i] - w[0] - w[1] * X[i, 1] == 0:
             print("We don't have differential in this point")
         else:

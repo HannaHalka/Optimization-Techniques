@@ -3,7 +3,7 @@
 We implement gradient descent for minimization Rosenbrock function.
 $100 \times  (y - x^2)^2 + (1 - x)^2$
 
-![img_5.png](img_5.png)
+![img_5.png](images/img_5.png)
 
 This function has global min in point (1, 1).
 
@@ -40,7 +40,7 @@ is the same as this: $x_{k+1} = x_k - \alpha∇f(x_k)$
 
 ---
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 Results for different step size: 
 
@@ -180,7 +180,7 @@ Now that we have calculated Lipschen constants we can identify our steps: ```ste
 
 ---
 
-![img_2.png](img_2.png)
+![img_2.png](images/img_2.png)
 
 | Step size          | 0.1     | L1: | Step size          | 0.558   | L2: | Step size          | 0.0271  |
 |--------------------|---------|-----|--------------------|---------|-----|--------------------|---------|
@@ -202,7 +202,7 @@ $g_1(x) = \frac12 (x - ln(1 + x))^2$
 
 $g_2(x) = \frac12 (x - ln(2 + x))^2$
 
-![img_7.png](img_7.png)
+![img_7.png](images/img_7.png)
 
 ---
 
@@ -216,7 +216,7 @@ Function returns: minimized X, history of possible values X, and time.
 
 ---
 
-![img_3.png](img_3.png)
+![img_3.png](images/img_3.png)
 
 ###  Gradient Descent for $g_1(x) =\frac12 (x - ln(1 + x))^2 $ 
 
@@ -248,5 +248,5 @@ Function returns: minimized X, history of possible values X, and time.
 | $g_2(x)$   | 1.8832e-01 | 6.1515e-02 | 2.1381e-02 | 7.7280e-03 | 2.8624e-03 | 1.0764e-03 | 4.0866e-04 | 1.5606e-04 | 5.9813e-05 | 2.2977e-05 |  
 
 
-![img_6.png](img_6.png)
+![img_6.png](images/img_6.png)
 
