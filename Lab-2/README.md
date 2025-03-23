@@ -95,7 +95,7 @@ And $w_{min} =
 
 ![img_2.png](images/img_2.png)
 
-    -(a) MAS is beter than MSE, becouse it faster.
+    -(a) MAS is better than MSE, because it is faster.
 
     -(b) No, we never encountered a non-differentiable point.
 
