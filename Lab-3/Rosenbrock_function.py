@@ -25,9 +25,7 @@ def compute_hessian(vector_x):
 
 def newton(vector_x, max_iter=10000, tol=1e-6):
     x = np.array(vector_x, dtype=float)
-    x_history = [x]
     f_history = [calculate_objective(x)]
-    grad_history = []
 
     for i in range(max_iter):
         grad = compute_gradient(x)
@@ -36,20 +34,18 @@ def newton(vector_x, max_iter=10000, tol=1e-6):
         d = np.linalg.solve(hess, -grad)
         x = x + d
 
-        x_history.append(x)
         f_history.append(calculate_objective(x))
-        grad_history.append(grad)
 
         if abs(f_history[-1] - f_history[-2]) <= tol:
             break
 
-    return x_history, grad_history, f_history, i+1
+    return x, f_history, i+1
 
 
 x1, x2 = np.array([2, 4]), np.array([-2, 10])
 
-x_hist1, g_hist1, f_hist1, iter1 = newton(x1)
-x_his2, g_hist2, f_hist2, iter2 = newton(x2)
+x1_final, f_hist1, iter1 = newton(x1)
+x2_final, f_hist2, iter2 = newton(x2)
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 5), dpi=100)
 
@@ -66,3 +62,11 @@ ax[1].set_ylabel("Objective value")
 ax[1].grid(True)
 
 plt.show()
+
+print(f"Min x* = {x1_final}, "
+      f"start poit was = {x1}, "
+      f"number of iterations = {iter1}.")
+
+print(f"Min x* = {x2_final}, "
+      f"start poit was = {x2}, "
+      f"number of iterations = {iter2}.")
