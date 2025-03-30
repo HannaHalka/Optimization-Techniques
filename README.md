@@ -15,8 +15,9 @@
 
 
 ## Lab-3
--
--
+- [Rosenbrock Function Using Newton's Method](https://github.com/HannaHalka/Optimization-Techniques/blob/main/Lab-3/Rosenbrock_function.py)
+- SR1 Quasi Newton's Method
+
 
 
 ## Lab-4

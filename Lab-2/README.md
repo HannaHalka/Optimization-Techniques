@@ -53,7 +53,7 @@ $w_2 = \begin{bmatrix}
 7.67216246 \\
 \end{bmatrix}$.
 
-![img.png](images/img.png)
+![Least-Squares-Error.png](images/Least-Squares-Error.png)
 
 The algorithm made 2,478,312 iteration. 
 
@@ -73,7 +73,7 @@ Now `Gradient norm = 0.00256 < 1e-2`, we made 36252 iteration, and $w_{min} =
 7.54741605 \\
 \end{bmatrix}$.
 
-![img_1.png](images/img_1.png)
+![Stochastic-Gradient-Descent.png](images/Stochastic-Gradient-Descent.png)
 
 The algorithm is not deterministic in terms of time, once it found solution using only 59 iterations.
 ***
@@ -93,7 +93,7 @@ And $w_{min} =
 7.65164797 \\
 \end{bmatrix}$.
 
-![img_2.png](images/img_2.png)
+![Mean-Absolute-Error.png](images/Mean-Absolute-Error.png)
 
     -(a) MAS is better than MSE, because it is faster.
 
@@ -114,4 +114,4 @@ $w_0 = \begin{bmatrix}
 7.70438857 \\
 \end{bmatrix}$. The search for the minimum in this problem was the most difficult part, it took up to 1 hour on my machine, which is why the number of iterations had to be reduced.
 
-![img_3.png](images/img_3.png)
+![Stochastic-Mean-Absolute-Error.png](images/Stochastic-Mean-Absolute-Error.png)
