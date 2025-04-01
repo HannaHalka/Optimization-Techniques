@@ -36,7 +36,7 @@ def newton(vector_x, max_iter=10000, tol=1e-6):
 
         f_history.append(calculate_objective(x))
 
-        if abs(f_history[-1] - f_history[-2]) <= tol:
+        if np.linalg.norm(grad) <= tol:
             break
 
     return x, f_history, i+1

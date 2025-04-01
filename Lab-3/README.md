@@ -7,4 +7,3 @@ $10 \times  (y - x^2)^2 + (1 - x)^2$
 
 ***
 # SR1 Quasi Newton's method
-
