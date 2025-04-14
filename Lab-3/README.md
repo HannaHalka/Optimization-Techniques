@@ -3,6 +3,8 @@
 We implement gradient descent for minimization Rosenbrock function.
 $10 \cdot  (x_1 - x_2^2)^2 + (1 - x_1)^2$
 
+![Rosenbrock-function.png](images/Rosenbrock-function.png)
+
 ***
 ```calculate_objective(vector_x):``` function accepts a vector as an input, and return the f(x, y).
 
@@ -34,12 +36,11 @@ $x^*$ = [1, 1]
 
 $$ B_{k+1} = B_k + \frac{(y_k - B_k \triangle x_k) \cdot (y_k - B_k \triangle x_k)^T}{(y_k - B_k \triangle x_k)^T\triangle x_k} $$
 
+***
+It's took 51 iteration to find $x^*$ from [2, 4], and 235 iteration from [-2, 10].
+$x^*$ = [1, 1]
 
-
-
-
-
-
+![SR1-Method.png](images/SR1-Method.png)
 
 
 

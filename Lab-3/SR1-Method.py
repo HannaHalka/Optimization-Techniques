@@ -19,40 +19,37 @@ def quasi_newton(vector_x, max_iter=10000, tol=1e-6):
     x = np.array(vector_x, dtype=float)
     H = np.eye(len(x))
 
-    d_history = []
     f_history = [calculate_objective(x)]
-    H_history = [H]
+    d_history = []
+    h_history = [H]
 
     for i in range(max_iter):
         grad = compute_gradient(x)
-        d = -H @ grad
-        x_new = x + d
-        grad_new = compute_gradient(x_new)
-
+        x_new = x - H @ grad
         s = x_new - x
-        y = grad_new - grad
-        u = s - H @ y
-        denom = u @ y
+        grad_new = compute_gradient(x_new)
+        d = grad_new - grad
 
-        if abs(denom) > 1e-8:
-            H += np.outer(u, u) / denom
+        u = s - H @ d # just for help
+        H_new = H + np.outer(u, u)/(u.T @ d)
 
         f_history.append(calculate_objective(x_new))
+        h_history.append(H_new)
         d_history.append(d)
-        H_history.append(H)
+
+        x = x_new
+        H = H_new
 
         if np.linalg.norm(grad_new) <= tol:
             break
 
-        x = x_new
-
-    return x, f_history, d_history, H_history, i+1
+    return x, f_history, h_history, d_history, i+1
 
 
 x1, x2 = np.array([2, 4]), np.array([-2, 10])
 
-x1_final, f_hist1, d_hist1, H_hist1, iter1 = quasi_newton(x1)
-x2_final, f_hist2, d_hist2, H_hist2, iter2 = quasi_newton(x2)
+x1_final, f_hist1, H_hist1, d_hist1, iter1 = quasi_newton(x1)
+x2_final, f_hist2, H_hist2, d_hist2, iter2 = quasi_newton(x2)
 
 fig, ax = plt.subplots(1, 2, figsize=(10, 5), dpi=100)
 
