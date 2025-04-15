@@ -21,5 +21,4 @@
 
 
 ## Lab-4
-- 
-
+- [Knapsack-problem](https://github.com/HannaHalka/Optimization-Techniques/blob/main/Lab-4/Knapsack-problem.py)
