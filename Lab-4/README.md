@@ -8,11 +8,10 @@
 
 `selection: ` Looking at fitness_scores we choose six best chromosome and six worst. 
 
-`crossover_and_mutation: ` Six best chromosome makes 2 children. (using middle point) 
+`crossover_and_mutation: ` Six best chromosome makes 2 children. (using middle point)  With probability 6% children can 
+mutate all 1 become 0, and all 0 become 1.
 
 `replace: ` Six worst chromosome replacing to six new children.
-
-`evolution: `
 
 ***
 
@@ -31,3 +30,4 @@ Tacking into a count weights vector and benefits vector:
 Best fitness = 40
 
 Chromosome$^T$= [0 1 1 1 0 0 1 1 1 1 0 0 1 1 0 0 0 1 0 0]
+
